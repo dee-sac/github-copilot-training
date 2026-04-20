@@ -1,6 +1,14 @@
-function main(): void {
-  const message = "Hello from github-copilot-training with Node + TypeScript";
-  console.log(message);
+import { fileURLToPath } from "node:url";
+
+export function createGreeting(): string {
+  return "Hello from github-copilot-training with Node + TypeScript";
 }
 
-main();
+export function main(): void {
+  console.log(createGreeting());
+}
+
+const isDirectRun = process.argv[1] === fileURLToPath(import.meta.url);
+if (isDirectRun) {
+  main();
+}
